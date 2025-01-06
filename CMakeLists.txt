@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.29)
+project(llfc_cpp_study)
+
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(llfc_cpp_study main.cpp)
+
+add_subdirectory(01_var_output)
+add_subdirectory(02_scope_space)
+add_subdirectory(03_header_source)
+add_subdirectory(04_extern)
+add_subdirectory(05_reference_type)
+add_subdirectory(06_pointer_type)
+add_subdirectory(07_const)
