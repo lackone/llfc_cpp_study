@@ -1,7 +1,9 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
-#include <bits/ranges_algo.h>
+#include <sstream>
+#include <regex>
+
 using namespace std;
 
 //在 C++ 中，有两种主要的字符串类型：
@@ -130,6 +132,62 @@ int main() {
     //find_first_of(), find_last_of()：查找字符集合中的任何一个字符。
     cout << tt7.find_first_of("e") << endl;
     cout << tt7.find_last_of("l") << endl;
+
+    //字符串流（stringstream）
+    //std::stringstream 是 C++ 标准库中第 <sstream> 头文件提供的一个类，用于在内存中进行字符串的读写操作，类似于文件流。
+    stringstream ss;
+    ss << "aa" << "bb" << "cc";
+    cout << ss.str() << endl;
+
+    //从字符串流中读取数据：
+    string data = "123 45 678 test";
+    stringstream ss4(data);
+    int aa, bb, cc;
+    string te;
+    ss4 >> aa >> bb >> cc >> te;
+    cout << aa << bb << cc << te << endl;
+
+    //将其他类型转换为 std::string：
+    //使用 std::to_string()：
+    cout << to_string(123) << endl;
+    cout << to_string(3.1415) << endl;
+    //将 std::string 转换为其他类型：
+    //使用字符串流：
+    string num1 = "123";
+    stringstream ss5(num1);
+    int num2;
+    ss5 >> num2;
+    cout << num2 << endl;
+
+    //使用 std::stoi(), std::stod() 等函数（C++11 及以上）：
+    cout << stoi("123") << endl;
+    cout << stod("3.1415") << endl;
+
+    //正则表达式与字符串匹配
+    std::string txt = "The quick brown fox jumps over the lazy dog.";
+    //使用原始字符串字面值（R"()"）以简化正则表达式的编写。
+    std::regex pattern(R"(\b\w{5}\b)"); // 匹配所有5个字母的单词
+
+    std::sregex_iterator it(txt.begin(), txt.end(), pattern);
+    std::sregex_iterator end;
+
+    std::cout << "5个字母的单词有:" << std::endl;
+    while (it != end) {
+        std::cout << (*it).str() << std::endl;
+        ++it;
+    }
+
+    //从 C 风格字符串转换为 std::string
+    //通过 std::string 的构造函数，可以轻松将 C 风格字符串转换为 std::string。
+    const char *cstr = "hello,world";
+    string cstr2(cstr);
+    cout << cstr2 << endl;
+
+    //从 std::string 转换为 C 风格字符串
+    //使用 c_str() 成员函数，可以获取 C 风格字符串指针。
+    string str6 = "hello,world";
+    const char *cstr6 = str6.c_str();
+    cout << cstr6 << endl;
 
     return 0;
 }
