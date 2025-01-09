@@ -19,4 +19,9 @@ c++学习笔记，感谢B站(恋恋风辰zack)
 14_array            数组知识
 15_multi_array      多维数组
 16_operator         常见运算符
+17_statement_scope  语句和作用域
+18_function         函数用法
+19_class            类基础用法
+20_inherit_polymorphism 继承和多态
+21_interview_questions  类相关面试题
 ```
